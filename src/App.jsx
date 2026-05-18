@@ -6,6 +6,9 @@ import SplashScreen from './screens/SplashScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import OrdersScreen from './screens/OrdersScreen';
+import ViewOrderScreen from './screens/ViewOrderScreen';
+import CreateOrderScreen from './screens/CreateOrderScreen';
+import EditOrderScreen from './screens/EditOrderScreen';
 import ItemsScreen from './screens/ItemsScreen';
 import StoresScreen from './screens/StoresScreen';
 
@@ -22,6 +25,9 @@ function App() {
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Orders" component={OrdersScreen} />
+          <Stack.Screen name="ViewOrder" component={ViewOrderScreen} />
+          <Stack.Screen name="CreateOrder" component={CreateOrderScreen} />
+          <Stack.Screen name="EditOrder" component={EditOrderScreen} />
           <Stack.Screen name="Items" component={ItemsScreen} />
           <Stack.Screen name="Stores" component={StoresScreen} />
         </Stack.Navigator>
