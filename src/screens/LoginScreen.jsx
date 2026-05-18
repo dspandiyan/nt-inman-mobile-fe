@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Image,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -39,9 +40,12 @@ function LoginScreen({navigation}) {
           <View
             style={styles.header}>
             <View style={styles.iconBox}>
-              <Icon name="clipboard-check-outline" size={36} color="#FFFFFF" />
+                <Image
+                source={require('../Assets/Group.png')}
+                style={{ height: 30, width: 30 }}
+                />
             </View>
-            <Text style={styles.appName}>Inman</Text>
+            <Text style={styles.appName}>InMan</Text>
             <Text style={styles.appTagline}>ORDER MANGEMENT</Text>
           </View>
 
@@ -53,12 +57,7 @@ function LoginScreen({navigation}) {
             {/* Email field */}
             <Text style={styles.label}>Email Address</Text>
             <View style={styles.inputWrapper}>
-              <Icon
-                name="email-outline"
-                size={20}
-                color="#9E9E9E"
-                style={styles.inputIcon}
-              />
+              <Icon name="email-outline" size={20} color="#9E9E9E" style={styles.inputIcon} />
               <TextInput
                 style={styles.input}
                 placeholder="ajay@gmail.com"
@@ -74,12 +73,7 @@ function LoginScreen({navigation}) {
             {/* Password field */}
             <Text style={styles.label}>Password</Text>
             <View style={styles.inputWrapper}>
-              <Icon
-                name="lock-outline"
-                size={20}
-                color="#9E9E9E"
-                style={styles.inputIcon}
-              />
+              <Icon name="lock-outline" size={20} color="#9E9E9E" style={styles.inputIcon} />
               <TextInput
                 style={styles.input}
                 placeholder="••••••••••"
@@ -144,10 +138,11 @@ const styles = StyleSheet.create({
   header: {
     height:'40%',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingTop: 48,
     paddingBottom: 40,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
     backgroundColor: '#1A237E',
   },
   iconBox: {
@@ -187,14 +182,14 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   welcomeSubtitle: {
-    fontSize: 14,
+    fontSize: 15,
     color: '#9E9E9E',
     marginBottom: 32,
   },
 
   // Inputs
   label: {
-    fontSize: 13,
+    fontSize: 16,
     fontWeight: '600',
     color: '#424242',
     marginBottom: 8,

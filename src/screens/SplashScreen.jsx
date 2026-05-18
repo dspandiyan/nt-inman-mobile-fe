@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {View, Text, StyleSheet, StatusBar} from 'react-native';
+import {View, Text,Image, StyleSheet, StatusBar} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 function SplashScreen() {
@@ -18,7 +18,10 @@ function SplashScreen() {
 
       {/* Logo icon box */}
       <View style={styles.iconBox}>
-        <Text style={styles.logoIcon}>📦</Text>
+           <Image
+            source={require('../Assets/Group.png')}
+            style={{ height: 30, width: 30 }}
+            />
       </View>
 
       {/* App name */}
@@ -40,8 +43,8 @@ const styles = StyleSheet.create({
   },
   iconBox: {
     padding: 20,
-    borderRadius: 15,
-    backgroundColor: '#4F46E5',
+    borderRadius: 20,
+    backgroundColor: '#3b5093c9',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
   },
   tagline: {
     fontSize: 16,
-    color: '#90CAF9',
+    color: '#ffffffff',
     marginTop: 8,
     letterSpacing: 1,
   },
