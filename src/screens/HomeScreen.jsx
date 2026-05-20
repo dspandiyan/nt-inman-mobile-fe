@@ -61,8 +61,8 @@ function HomeScreen() {
           <Svg style={StyleSheet.absoluteFill}>
             <Defs>
               <RadialGradient id="gradGreeting" cx="50%" cy="50%" r="70%">
-                <Stop offset="0%" stopColor="#4F46E5" stopOpacity="1" />
-                <Stop offset="100%" stopColor="#0D0D2B" stopOpacity="1" />
+                <Stop offset="0%" stopColor="#1E40AF" stopOpacity="1" />
+                <Stop offset="100%" stopColor="#0D1B49" stopOpacity="1" />
               </RadialGradient>
             </Defs>
             <Rect width="100%" height="100%" fill="url(#gradGreeting)" />
