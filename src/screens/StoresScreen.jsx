@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ScreenLayout from '../components/ScreenLayout';
+import ScreenHeader from '../components/ScreenHeader';
 
 // ── sample data ───────────────────────────────────────────────────────────────
 const ALL_STORES = [
@@ -142,9 +143,7 @@ function StoresScreen() {
 
   return (
     <ScreenLayout>
-      {/* Page title */}
-      <Text style={styles.pageTitle}>Stores</Text>
-
+      <ScreenHeader title="Stores" backRoute="Home" />
       {/* Search bar */}
       <View style={styles.searchBar}>
         <Icon name="magnify" size={20} color="#9E9E9E" style={styles.searchIcon} />

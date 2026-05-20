@@ -3,6 +3,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import BottomTabBar from '../components/BottomTabBar';
 import TopBar from '../components/TopBar';
+import ScreenHeader from '../components/ScreenHeader';
 
 // ── sample items per order (keyed by orderId) ─────────────────────────────────
 const ORDER_ITEMS = {
@@ -60,8 +61,7 @@ function ViewOrderScreen({route, navigation}) {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
 
-        {/* Page title */}
-        <Text style={styles.pageTitle}>Orders Details</Text>
+        <ScreenHeader title="Order Details" backRoute="Orders" />
 
         {/* Order meta */}
         <Text style={styles.metaText}># Order Id : {orderId}</Text>
@@ -122,12 +122,6 @@ const styles = StyleSheet.create({
   },
 
   // Meta
-  pageTitle: {
-    fontSize: 24,
-    fontWeight: '800',
-    color: '#1A1A1A',
-    marginBottom: 8,
-  },
   metaText: {
     fontSize: 13,
     fontWeight: '500',

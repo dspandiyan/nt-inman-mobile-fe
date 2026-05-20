@@ -10,6 +10,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
 import ScreenLayout from '../components/ScreenLayout';
+import ScreenHeader from '../components/ScreenHeader';
 
 // ── sample data ───────────────────────────────────────────────────────────────
 const ALL_ORDERS = [
@@ -148,7 +149,8 @@ function OrdersScreen() {
     <ScreenLayout>
       {/* Page title + count */}
       <View style={styles.titleRow}>
-        <Text style={styles.pageTitle}>Orders</Text>
+        <ScreenHeader title="Orders" backRoute="Home" />
+        <Text style={styles.pageTitle}></Text>
         <Text style={styles.orderCount}>{ALL_ORDERS.length} Orders</Text>
       </View>
 
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     paddingHorizontal: 12,
     height: 46,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: '#E0E0E0',
   },
   searchIcon: {
@@ -240,6 +242,9 @@ const styles = StyleSheet.create({
   // Order card
   card: {
     backgroundColor: '#F5F6FA',
+    borderWidth: 2,
+    borderColor: '#d8d8dbff',
+    borderStyle: 'solid',
     borderRadius: 14,
     padding: 14,
     gap: 10,
@@ -257,7 +262,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   orderId: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '700',
     color: '#1A1A1A',
   },
@@ -280,7 +285,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   storeName: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '800',
     color: '#1A1A1A',
   },
@@ -299,7 +304,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   dateText: {
-    fontSize: 13,
+    fontSize: 16,
     color: '#616161',
     fontWeight: '500',
   },
@@ -307,7 +312,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   amountLabel: {
-    fontSize: 11,
+    fontSize: 13,
     color: '#9E9E9E',
     fontWeight: '500',
   },

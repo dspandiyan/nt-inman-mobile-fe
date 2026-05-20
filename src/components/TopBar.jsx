@@ -1,10 +1,10 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-function TopBar({title = 'InMan'}) {
+function TopBar() {
   return (
     <View style={styles.topBar}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>InMan</Text>
       <View style={styles.icons}>
         <TouchableOpacity style={styles.iconBtn}>
           <Icon name="bell-outline" size={24} color="#1A237E" />
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingVertical: 12,
-    backgroundColor: '#F5F6FA',
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 36,

@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ScreenLayout from '../components/ScreenLayout';
+import ScreenHeader from '../components/ScreenHeader';
+import Svg, {Defs, RadialGradient, LinearGradient, Stop, Rect} from 'react-native-svg';
 
 // ── sample data ───────────────────────────────────────────────────────────────
 const ALL_ITEMS = [
@@ -19,7 +21,7 @@ const ALL_ITEMS = [
     category: 'Chips',
     stock: 50,
     price: 40.0,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/24701-nature-natural-beauty.jpg/240px-24701-nature-natural-beauty.jpg',
+    image: require('../Assets/image 4.png'),
   },
   {
     id: '2',
@@ -70,7 +72,7 @@ function ItemCard({item}) {
       {/* Thumbnail */}
       <View style={styles.thumbnail}>
         {item.image ? (
-          <Image source={{uri: item.image}} style={styles.thumbnailImg} resizeMode="cover" />
+          <Image source={item.image} style={styles.thumbnailImg} resizeMode="cover" />
         ) : (
           <Icon name="image-outline" size={36} color="#BDBDBD" />
         )}
@@ -114,17 +116,40 @@ function ItemsScreen() {
 
   return (
     <ScreenLayout>
-      {/* Page title */}
-      <Text style={styles.pageTitle}>Items</Text>
-
+      <View style={styles.ItemsHeading}>
+        <ScreenHeader title="Items" backRoute="Home" />
+      </View>
       {/* Tab toggle */}
+      
       <View style={styles.tabToggle}>
+        <Svg style={StyleSheet.absoluteFill}>
+          <Defs>
+            <LinearGradient id="tabToggleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <Stop offset="0%" stopColor="#0D1B49" stopOpacity="1" />
+              <Stop offset="50%" stopColor="#1F41AF" stopOpacity="1" />
+              <Stop offset="100%" stopColor="#0D1B49" stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Rect width="100%" height="100%" fill="url(#tabToggleGrad)" />
+        </Svg>
         {['Items', 'Categories'].map(tab => (
           <TouchableOpacity
             key={tab}
             style={[styles.toggleBtn, activeTab === tab && styles.toggleBtnActive]}
             onPress={() => setActiveTab(tab)}
             activeOpacity={0.8}>
+            {activeTab === tab && (
+              <Svg style={StyleSheet.absoluteFill}>
+                <Defs>
+                  <LinearGradient id={`tabGrad_${tab}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                    <Stop offset="0%" stopColor="#0D1B49" stopOpacity="1" />
+                    <Stop offset="60%" stopColor="#1F41AF" stopOpacity="1" />
+                    {/* <Stop offset="100%" stopColor="#0D0D2B" stopOpacity="1" /> */}
+                  </LinearGradient>
+                </Defs>
+                <Rect width="100%" height="100%" fill={`url(#tabGrad_${tab})`} />
+              </Svg>
+            )}
             <Text style={[styles.toggleLabel, activeTab === tab && styles.toggleLabelActive]}>
               {tab}
             </Text>
@@ -178,28 +203,34 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
 
+  ItemsHeading :{
+    paddingHorizontal: 16
+  },
+
   // Tab toggle
   tabToggle: {
     flexDirection: 'row',
-    backgroundColor: '#1A237E',
-    borderRadius: 10,
+    borderRadius: 40,
     marginHorizontal: 16,
     marginBottom: 14,
     padding: 4,
+    overflow: 'hidden',
   },
   toggleBtn: {
     flex: 1,
     paddingVertical: 10,
-    borderRadius: 8,
+    borderRadius: 40,
     alignItems: 'center',
   },
   toggleBtnActive: {
-    backgroundColor: '#3949AB',
+    borderWidth: 2,
+    borderColor: '#d8d8dbff',
+    overflow: 'hidden',
   },
   toggleLabel: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '700',
-    color: 'rgba(255,255,255,0.6)',
+    color: 'rgba(255, 255, 255, 1)',
   },
   toggleLabelActive: {
     color: '#FFFFFF',
@@ -215,7 +246,7 @@ const styles = StyleSheet.create({
     marginBottom: 14,
     paddingHorizontal: 12,
     height: 46,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: '#E0E0E0',
   },
   searchIcon: {
@@ -259,6 +290,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F5F6FA',
+     borderWidth: 2,
+    borderColor: '#d8d8dbff',
+    borderStyle: 'solid',
     borderRadius: 14,
     padding: 12,
     gap: 12,
